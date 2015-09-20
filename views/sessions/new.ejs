@@ -1,0 +1,27 @@
+<% if (session.autoLogout==true && session.referenceTime!="undefined")
+{ %>
+    <label class="blinking">Vuelva a iniciar sesi&oacuten.</label>
+    <br /><label class="errors">Ha superado 2 minutos de inactividad</label>
+    <% session.autoLogout = false %>
+<% } else  { %>
+    <h2>Login</h2>
+         <% } %>
+
+<form method='POST' action='/login'>
+  <br />
+	<div class="field">
+	<label for="login">Login:</label><br />
+	<input type="text" id="login" name="login" size="30"/>
+	</div>
+
+	<div class="field">
+	<label for="password">Password:</label><br />
+	<input type="password" id="password" name="password" size="30"/>
+	</div>
+
+	<div class="actions">
+	<input name="commit" type="submit" value="Login" />
+
+</div>
+
+</form>

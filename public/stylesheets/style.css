@@ -1,0 +1,39 @@
+*                    { margin: 0; padding: 0; }
+body                 { font: 16px Georgia, serif; }
+#page-wrap           { margin: 2% auto; color: white; }
+#page-wrap > .main   { border: 1px solid #999; padding: 1%;
+	                   margin-bottom: 1px; color: black;}
+
+section > div        { padding: 20px; }
+header, nav, section { background: #eee; text-align: center;}
+footer               { background: #eee; text-align: center;}
+nav span             { margin: 0px 10px 0px 0px;}
+#ErrorMsgs           { color: #f61; font-size: smaler}
+.errors              { color: #cc0000; font-size: smaler;}
+
+@-webkit-keyframes blinker {
+  from {opacity: 1.0;}
+  to {opacity: 0.0;}
+}
+.blinking {
+	text-decoration: blink;
+	color: #fFF;
+	-webkit-animation-name: blinker;
+	-webkit-animation-duration: 0.6s;
+	-webkit-animation-iteration-count:5;
+	-webkit-animation-timing-function:ease-out;
+	-webkit-animation-direction: alternate;
+
+	background: #000;
+  filter: alpha(opacity=50);
+  filter: progid: DXImageTransform.Microsoft.Alpha(opacity=50);
+  -moz-opacity: 0.50;
+  opacity: 0.5;
+  zoom: 1;
+}
+
+table#t01 {
+	  text-align: left;
+    width: 100%;
+    background-color: #f1f1c1;
+}

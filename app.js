@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var partials = require('express-partials');
 var methodOverride = require('method-override');
 var session = require('express-session');
-
+var cors = require('cors');
 var routes = require('./routes/index');
 
 var app = express();
@@ -27,6 +27,26 @@ app.use(cookieParser('Quiz 2015')); //semilla para cifrar la cookie
 app.use(session());
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.options('*', cors());  
+app.use(cors()); 
+
+//MW que permite a la function req.render responder a peticiones AJAX
+app.use(function(req, res, next) {  
+  var _render = res.render;
+
+  res.render = function(view, options, fn) {
+    if (req.xhr || req.headers.accept.indexOf('json') > -1) {
+      res.send(options);
+    }else {
+      _render.call(this, view, options, fn);
+    }
+  }
+  if(req.xhr || req.headers.accept.indexOf('json') > -1) {
+    req.isAjax = true;
+  }
+  next();
+});
 
 
 //Helpers dinamicos:

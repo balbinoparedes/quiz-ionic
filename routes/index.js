@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Quiz' ,  errors: [] });
 });
 
-//Autoload de comandos con :quizId
+//Autoload de commandos con :quizId
 router.param('quizId', quizController.load); //autoload :quizid
 router.param('commentId', commentController.load); //autoload :commentId
 
